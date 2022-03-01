@@ -150,7 +150,7 @@ const snorlaxAbilities = {
 };
 
 const extractAbilities = (arr) => {
-  // Solution code here...
+  return arr.map(data => data.ability.name);
 };
 
 /* ------------------------------------------------------------------------------------------------
