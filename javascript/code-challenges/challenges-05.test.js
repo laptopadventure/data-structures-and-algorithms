@@ -129,7 +129,12 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 ------------------------------------------------------------------------------------------------ */
 
 const reversedString = (str) => {
-  // Solution code here...
+  const backwards = [];
+  const forwards = str.split('');
+  for(let i = forwards.length -1; i >= 0; i--) {
+    backwards.push(forwards[i]);
+  }
+  return backwards.reduce((acc, curr) => acc + curr, '');
 };
 
 /* ------------------------------------------------------------------------------------------------
