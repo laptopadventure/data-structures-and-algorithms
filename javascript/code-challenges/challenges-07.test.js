@@ -134,7 +134,11 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+  recipe.ingredients.forEach(ingredient => {
+    // the second space is always where we want to start slicing
+    const criticalWeakPoint = ingredient.indexOf(' ', 3) + 1;
+    result.push(ingredient.slice(criticalWeakPoint));
+  });
   return result;
 };
 
