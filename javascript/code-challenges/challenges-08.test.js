@@ -90,7 +90,7 @@ For example:
 
 const isNum = (input) => {
   if(typeof input === 'number') {
-    return true
+    return true;
   }
   const regex = /[0-9]/;
   return !!input.match(regex);
@@ -104,7 +104,8 @@ Write a function named containsWorld that takes in a string or number of any len
 ------------------------------------------------------------------------------------------------ */
 
 const containsWorld = (input) => {
-  // Solution code here...
+  const regex = /(world)/;
+  return !!input.match(regex);
 };
 
 /* ------------------------------------------------------------------------------------------------
