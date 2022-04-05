@@ -271,7 +271,17 @@ For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 ------------------------------------------------------------------------------------------------ */
 
 const excel = (str) => {
-  // Solution code here...
+  const result = [];
+  const arr = str.split('\n');
+  arr.forEach(str => {
+    let multiplyThese = str.split(',');
+    multiplyThese = multiplyThese.map(strint => parseInt(strint));
+    result.push(multiplyThese.reduce((acc, curr) => {
+      acc += curr;
+      return acc;
+    }, 0));
+  });
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
