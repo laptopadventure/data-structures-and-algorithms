@@ -53,7 +53,13 @@ For example:
 return: 35
 ------------------------------------------------------------------------------------------------ */
 const totalSum = (matrix) => {
-  // Solution code here...
+  let sum = 0
+  for(let x of matrix) {
+    for(let y of x) {
+      sum += y;
+    }
+  }
+  return sum;
 };
 
 
