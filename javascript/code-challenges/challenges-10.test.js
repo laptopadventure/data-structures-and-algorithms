@@ -175,7 +175,21 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 ------------------------------------------------------------------------------------------------ */
 
 const calculateProduct = (numbers) => {
-  // Solution code here...
+  const numbersOnly = [];
+  //step one, remove any arrays internally by turning them into numbers recursively
+  numbers.forEach(numberOrArray => {
+    if(typeof numberOrArray === 'object') {
+      // this array still needs to get multiplied together
+      numbersOnly.push(calculateProduct(numberOrArray));
+    } else {
+      numbersOnly.push(numberOrArray);
+    }
+  });
+  //step two, reduce all numbers into the product.
+  return numbersOnly.reduce((acc, curr) => {
+    acc *= curr;
+    return acc;
+  }, 1);
 };
 
 /* ------------------------------------------------------------------------------------------------
