@@ -27,7 +27,15 @@ For example:
 return: 23
 ------------------------------------------------------------------------------------------------ */
 const findMax = (matrix) => {
-  // Solution code here...
+  let maximum = 0
+  for(let x of matrix) {
+    for(let y of x) {
+      if(y > maximum) {
+        maximum = y;
+      }
+    }
+  }
+  return maximum;
 };
 
 /* ------------------------------------------------------------------------------------------------
