@@ -238,7 +238,24 @@ let lowestWeeklyTemperatureData = [
 ];
 
 const lowestWeeklyAverage = (weather) => {
-  // Solution code here...
+  const averages = [];
+  weather.forEach(week => {
+    let sum = 0;
+    let divisor = 0;
+    week.forEach(temp => {
+      sum += temp;
+      divisor++;
+    });
+    averages.push(sum / divisor);
+  });
+  // our initial acc needs to be higher than any weekly temperature. I could set the acc to take the first one... or I could have a bit of fun.
+  const HEAT_OF_THE_SUNS_CORE = 28080000
+  return averages.reduce((acc, curr) => {
+    if(curr < acc) {
+      acc = curr;
+    }
+    return acc;
+  }, HEAT_OF_THE_SUNS_CORE);
 };
 
 /* ------------------------------------------------------------------------------------------------
