@@ -1,5 +1,7 @@
 'use strict';
 
+const { DataNode } = require("domhandler");
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
@@ -173,7 +175,12 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 ------------------------------------------------------------------------------------------------ */
 
 let findShortest = (data) => {
-  // Solution code here...
+  return data.reduce((acc, char) => {
+    if(char.name.length <= acc.length) {
+      acc = char.name;
+    }
+    return acc;
+  }, data[0].name);
 };
 
 /* ------------------------------------------------------------------------------------------------
