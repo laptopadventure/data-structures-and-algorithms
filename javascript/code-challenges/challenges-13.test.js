@@ -64,7 +64,9 @@ For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
 const onlyOddChars = (str) => {
-  // Solution code here...
+  let strArr = str.split('');
+  strArr = strArr.filter((str, index) => index % 2 !== 0);
+  return strArr.join('');
 };
 
 /* ------------------------------------------------------------------------------------------------
