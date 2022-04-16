@@ -3,15 +3,15 @@
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
-Write a function named longestString that takes in an array of strings and returns the index position of the longest string. 
+Write a function named longestString that takes in an array of strings and returns the index position of the longest string.
 ------------------------------------------------------------------------------------------------ */
 
 const longestString = (arr) => {
   let theLongestIndex = -1;
   arr.forEach((string, index) => {
-    let theLongestCheck = theLongestIndex != -1
+    let theLongestCheck = theLongestIndex !== -1
       ? arr[theLongestIndex].length
-      : 0
+      : 0;
     if(string.length > theLongestCheck) {
       theLongestIndex = index;
     }
@@ -52,7 +52,14 @@ For example, (123) 456-7890 returns 1234567890
 ------------------------------------------------------------------------------------------------ */
 
 const standardizePhoneNumbers = (arr) => {
-  return arr.map(str => str.replaceAll(/[() -]/g, ''));
+  //This method WORKED! And with npm test, it passed. But on github it failed checks as it didn't recognize replaceAll, SO I did it a different way.
+  //return arr.map(str => str.replaceAll(/[() -]/g, ''));
+
+  const result = arr.map(str => {
+    const chars = str.split('');
+    return chars.filter(char => char !== '(' && char !== ')' && char !== ' ' && char !== '-').join('');
+  });
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
