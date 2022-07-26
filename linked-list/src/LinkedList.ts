@@ -33,7 +33,7 @@ export class LinkedList<T> implements Collection<T> {
   toString(): string {
     let iteratorNode = this.start;
     if (!iteratorNode) {
-      return "NULL";
+      return "EMPTY";
     }
     let returned = "";
     while (iteratorNode) {

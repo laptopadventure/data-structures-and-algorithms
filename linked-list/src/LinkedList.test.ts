@@ -7,5 +7,12 @@ describe("linked list", () => {
   it("runs my custom test", () => {
     const list: Collection<string> = new LinkedList<string>();
     expect(list).toBeDefined();
+
+    expect(list.toString()).toBe("EMPTY");
+
+    list.insert("Jimmy");
+    list.insert("Tammy");
+
+    expect(list.toString()).toBe("{ Tammy } -> { Jimmy } -> NULL");
   });
 });
