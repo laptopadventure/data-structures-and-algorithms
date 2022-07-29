@@ -1,18 +1,23 @@
-import { Collection } from "./Collection";
 import { LinkedList } from "./LinkedList";
 
-// WELL okay maybe I didn't write tests this time around but hey I was having too much fun with the ts don't judge me
-
 describe("linked list", () => {
-  it("runs my custom test", () => {
-    const list: Collection<string> = new LinkedList<string>();
+  it("runs custom tests", () => {
+    //it is defined
+    const list: LinkedList<string> = new LinkedList<string>();
     expect(list).toBeDefined();
-
+    //it logs empty lists correctly
     expect(list.toString()).toBe("EMPTY");
-
+    //it can insert & includes works
     list.insert("Jimmy");
     list.insert("Tammy");
-
-    expect(list.toString()).toBe("{ Tammy } -> { Jimmy } -> NULL");
+    list.insert("Phoebe");
+    expect(list.includes("Tammy")).toBe(true);
+    //it logs nonempty lists correctly
+    expect(list.toString()).toBe(
+      "{ Phoebe } -> { Tammy } -> { Jimmy } -> NULL"
+    );
+    //it can insert before an item
+    //length works
+    expect(list.length).toBe(3);
   });
 });
