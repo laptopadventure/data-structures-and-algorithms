@@ -24,13 +24,10 @@ export class LinkedList<T> implements Collection<T> {
   }
 
   append(item: T) {
-    let lastNode = this.start;
+    let lastNode = this.last;
     if (!lastNode) {
       this.insert(item);
       return;
-    }
-    while (lastNode.next) {
-      lastNode = lastNode.next;
     }
     const newNode: Node<T> = {
       item: item,
