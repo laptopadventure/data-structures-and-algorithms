@@ -92,6 +92,21 @@ export class LinkedList<T> implements Collection<T> {
     }
     return false;
   }
+  kthFromEnd(k: number): T | undefined {
+    let distanceToTarget = this.length - k - 1;
+    if (!this.start) {
+      return undefined;
+    }
+    let tracker = this.start;
+    while (distanceToTarget) {
+      if (!tracker.next) {
+        break;
+      }
+      distanceToTarget--;
+      tracker = tracker.next;
+    }
+    return !distanceToTarget ? tracker.item : undefined;
+  }
 
   toString(): string {
     let iteratorNode = this.start;
