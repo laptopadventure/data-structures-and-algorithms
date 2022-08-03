@@ -20,4 +20,20 @@ describe("linked list", () => {
     //length works
     expect(list.length).toBe(3);
   });
+  it("can get kth position from end", () => {
+    const list: LinkedList<string> = new LinkedList<string>();
+    list.insert("Pippa");
+    // Where the linked list is of a size 1
+    expect(list.kthFromEnd(0)).toBe("Pippa");
+    list.insert("Lilian");
+    list.insert("Dylan");
+    //“Happy Path” where k is not at the end, but somewhere in the middle of the linked list
+    expect(list.kthFromEnd(1)).toBe("Lilian");
+    //Where k and the length of the list are the same, kinda
+    expect(list.kthFromEnd(2)).toBe("Dylan");
+    //where k is greater than the length of the linked list
+    expect(list.kthFromEnd(3)).toBe(undefined);
+    //Where k is not a positive integer
+    expect(list.kthFromEnd(-1)).toBe(undefined);
+  });
 });
