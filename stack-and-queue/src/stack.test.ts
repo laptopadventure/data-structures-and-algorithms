@@ -16,9 +16,46 @@ describe("Stack", () => {
     expect(s.size).toBe(2);
     expect(s.peek).toBe("Sam");
   });
-  it("can peek and size correctly at an empty stack", () => {
-    const emptyStack = new Stack<string>();
-    expect(emptyStack.peek).toBe(undefined);
-    expect(emptyStack.size).toBe(0);
+  it("can pop off a stack", () => {
+    const stack = new Stack<string>();
+
+    stack.push("Phoebe");
+    stack.push("Arthur");
+    const popped = stack.pop();
+
+    expect(popped).toBe("Arthur");
+  });
+  it("can empty a stack after multiple pops", () => {
+    const stack = new Stack<string>();
+
+    stack.push("Phoebe");
+    stack.push("Arthur");
+    stack.pop();
+    stack.pop();
+
+    expect(stack.size).toBe(0);
+  });
+  it("can peek at something on the stack", () => {
+    const stack = new Stack<string>();
+
+    stack.push("Phoebe");
+    stack.push("Arthur");
+
+    expect(stack.peek).toBe("Arthur");
+  });
+  it("can instantiate an empty stack", () => {
+    const stack = new Stack<string>();
+
+    expect(stack).toBeTruthy();
+  });
+  it("popping or peeking an empty stack raises exceptions", () => {
+    const stack = new Stack<string>();
+
+    expect(() => {
+      stack.pop();
+    }).toThrow("Nothing to pop off the stack!");
+    expect(() => {
+      stack.peek;
+    }).toThrow("Nothing to peek at on the stack!");
   });
 });

@@ -6,14 +6,22 @@ export class Queue<T> {
   }
 
   get peek(): T {
-    return this.queue[0];
+    const peeked = this.queue[0];
+    if (!peeked) {
+      throw new Error("Nothing to peek at!");
+    }
+    return peeked;
   }
 
   enqueue(enqueued: T): void {
     this.queue.push(enqueued);
   }
 
-  dequeue(): T | undefined {
-    return this.queue.shift();
+  dequeue(): T {
+    const dequeued = this.queue.shift();
+    if (!dequeued) {
+      throw new Error("Nothing to dequeue!");
+    }
+    return dequeued;
   }
 }
