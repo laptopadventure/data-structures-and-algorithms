@@ -1,4 +1,4 @@
-import { LinkedList } from "./LinkedList";
+import { LinkedList, zipLists } from "./LinkedList";
 
 describe("linked list", () => {
   it("runs custom tests", () => {
@@ -35,5 +35,19 @@ describe("linked list", () => {
     expect(list.kthFromEnd(3)).toBe(undefined);
     //Where k is not a positive integer
     expect(list.kthFromEnd(-1)).toBe(undefined);
+  });
+  it("can zip", () => {
+    const list1: LinkedList<string> = new LinkedList<string>();
+    list1.insert("Jimmy");
+    list1.insert("Tammy");
+    list1.insert("Phoebe");
+    const list2: LinkedList<string> = new LinkedList<string>();
+    list2.insert("Pippa");
+    list2.insert("Lilian");
+    list2.insert("Dylan");
+    const zipped = zipLists(list1, list2);
+    expect(zipped.toString()).toBe(
+      "{ Jimmy } -> { Pippa } -> { Tammy } -> { Lilian } -> { Phoebe } -> { Dylan } -> NULL"
+    );
   });
 });
