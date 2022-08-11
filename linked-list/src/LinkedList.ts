@@ -122,3 +122,36 @@ export class LinkedList<T> implements Collection<T> {
     return returned;
   }
 }
+
+export function zipLists<T1, T2>(
+  list1: LinkedList<T1>,
+  list2: LinkedList<T2>
+): LinkedList<T1 | T2> {
+  const zipped = new LinkedList<T1 | T2>();
+  let tracker1 = list1.start;
+  if (!tracker1) {
+    return list2;
+  }
+  let tracker2 = list2.start;
+  if (!tracker2) {
+    return list1;
+  }
+  let flopper = true;
+  let stepsLeft = list1.length + list2.length;
+  while (stepsLeft) {
+    stepsLeft--;
+    flopper = !flopper;
+    if (flopper) {
+      zipped.insert(tracker1.item);
+      if (tracker1.next) {
+        tracker1 = tracker1.next;
+      }
+    } else {
+      zipped.insert(tracker2.item);
+      if (tracker2.next) {
+        tracker2 = tracker2.next;
+      }
+    }
+  }
+  return zipped;
+}
