@@ -23,6 +23,10 @@ In my mind, arrays are much closer to queues than linked lists, so that's the da
 - `npm i` to install dependencies
 - `npm test` to run tests and confirm I have completed the challenge
 
+## Whiteboard
+
+![UML](./UML.png)
+
 ## TypeScript Instructions
 
 - Verify your types are correct with `npm run check`
