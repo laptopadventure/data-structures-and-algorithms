@@ -7,7 +7,7 @@ function parseBrackets(string) {
     "(": ")",
   };
 
-  for (char of characters) {
+  for (const char of characters) {
     const isOpening = /[[{(]/gm.test(char);
     const isClosing = /[\]})]/gm.test(char);
     if (isOpening) {
