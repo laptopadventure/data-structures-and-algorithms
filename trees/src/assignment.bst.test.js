@@ -14,4 +14,12 @@ describe("Binary Search Tree", () => {
     expect(tree.contains(3)).toBe(true);
     expect(tree.contains(8)).toBe(false);
   });
+
+  it("returns the maximum in a boring way", () => {
+    expect(tree.findMaximumValue()).toBe(11);
+  });
+
+  it("returns the maximum value in a cool way", () => {
+    expect(tree.findMaximumValueCool()).toBe(11);
+  });
 });
