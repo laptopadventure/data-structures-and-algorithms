@@ -1,3 +1,24 @@
+function breadthFirst(tree) {
+  const root = tree.root;
+  if (!root) {
+    return [];
+  }
+  const result = [];
+  const queue = [root];
+  while (queue.length) {
+    const targetNode = queue.shift();
+    result.push(targetNode.value);
+
+    if (targetNode.left) {
+      queue.push(targetNode.left);
+    }
+    if (targetNode.right) {
+      queue.push(targetNode.right);
+    }
+  }
+  return result;
+}
+
 function fileCount(tree1, tree2) {
   const howManyFiles = (root, count) => {
     let isFolder = false;
