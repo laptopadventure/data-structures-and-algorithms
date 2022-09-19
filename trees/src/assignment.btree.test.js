@@ -1,4 +1,5 @@
 const { BinaryTree, Node } = require("./binary_tree.js");
+const { breadthFirst, fileCount } = require("./tree_helpers.js");
 
 describe("Binary Tree", () => {
   const tree = new BinaryTree(
@@ -26,5 +27,17 @@ describe("Binary Tree", () => {
 
   it("does an pre-order traversal (root, left, right)", () => {
     expect(tree.preOrder()).toEqual([1, 7, 2, 6, 3, 11, 9, 9, 5]);
+  });
+
+  it("has a working breadth first function", () => {
+    expect(breadthFirst(tree)).toEqual([1, 7, 9, 2, 6, 9, 3, 11, 5]);
+  });
+
+  it("can properly fileCount", () => {
+    const tree2 = new BinaryTree(
+      new Node(1, new Node(7, new Node(2)), new Node(9, undefined, new Node(9)))
+    );
+
+    expect(fileCount(tree, tree2)).toBe(false);
   });
 });

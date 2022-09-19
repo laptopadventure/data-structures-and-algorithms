@@ -20,7 +20,6 @@ class BinarySearchTree extends BinaryTree {
       //right
       if (number > currentNode.value) {
         if (currentNode.right) {
-          console.log("going right");
           currentNode = currentNode.right;
         } else {
           currentNode.right = new Node(number);
@@ -28,7 +27,6 @@ class BinarySearchTree extends BinaryTree {
         }
       }
     }
-    console.log("lost");
   }
   contains(number) {
     return this.inOrder().includes(number);
