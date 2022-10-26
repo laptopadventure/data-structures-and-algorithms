@@ -1,5 +1,9 @@
 # treeIntersection
 
+## Contributors
+
+Worked with Luis and Martha for this assignment!
+
 ## Whiteboard
 
 ![whiteboard](./treetime.png)
