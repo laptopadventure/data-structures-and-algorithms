@@ -5,20 +5,6 @@ export interface BinaryTreeNode<V> {
   right?: BinaryTreeNode<V>;
 }
 
-const tree2: BinaryTreeNode<number> = {
-  value: 2,
-  left: {
-    value: 3,
-    right: {
-      value: 5,
-      left: {
-        value: 7
-      }
-    }
-  }
-};
-
-
 export function treeIntersection<V>(tree1: BinaryTreeNode<V>, tree2: BinaryTreeNode<V>): V[] {
   
   const tree2Array = (tree:BinaryTreeNode<V>): V[] => {
