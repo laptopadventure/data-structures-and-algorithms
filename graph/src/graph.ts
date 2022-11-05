@@ -8,10 +8,6 @@ export interface Edge<NV, EV> {
   nodes: [Node<NV, EV>, Node<NV, EV>];
 }
 
-export function neighbors(origin: Node<Airport, Route>): Set<Node<Airport, Route>> {
-
-}
-
 export class Graph<NV, EV> {
   private nodes: Node<NV, EV>[] = [];
 
