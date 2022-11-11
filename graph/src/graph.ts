@@ -41,4 +41,21 @@ export class Graph<NV, EV> {
   size(): number {
     return this.nodes.length;
   }
+
+  breadthFirst(topNode: Node<NV, EV>): NV[] {
+    const seenMap = new Map();
+    const shouldSee = [topNode];
+    while(shouldSee.length) {
+      const node = shouldSee.shift() as Node<NV, EV>;
+      seenMap.set(node, node.value);
+      for(const edge of node.edges) {
+        const foundNode = edge.nodes[1];
+        if(seenMap.has(foundNode) || shouldSee.includes(foundNode)) {
+          continue;
+        }
+        shouldSee.push(foundNode);
+      }
+    }
+    return Array.from(seenMap.values());
+  }
 }
