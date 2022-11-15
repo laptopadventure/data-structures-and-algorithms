@@ -28,7 +28,7 @@ describe("graph", () => {
     graph.addEdge(sea, ord, { time: 1000 });
     graph.addEdge(sea, ord, { time: 1200 });
     graph.addEdge(ord, sea, { time: 1100 });
-    expect(sea.edges).toHaveLength(3);
+    expect(sea.edges).toHaveLength(2);
     expect(sea.edges[0]).toMatchObject<Edge<Airport, Route>>({
       value: { time: 1000 },
       nodes: [sea, ord]
@@ -37,7 +37,6 @@ describe("graph", () => {
   it("can get neighbors", () => {
     let setValues = Array.from(graph.neighbors(sea));
 
-    expect(setValues).toContain(sea);
     expect(setValues).toContain(ord);
   })
   it("can get nodes", () => {
