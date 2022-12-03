@@ -26,7 +26,19 @@ export class Graph<NV, EV> {
       nodes: [a, b]
     };
     a.edges.push(newEdge);
-    b.edges.push(newEdge);
+  }
+
+  addBiEdge(a: Node<NV, EV>, b: Node<NV, EV>, value: EV) {
+    const A2B: Edge<NV, EV> = {
+      value: value,
+      nodes: [a, b]
+    };
+    const B2A: Edge<NV, EV> = {
+      value: value,
+      nodes: [b, a]
+    };
+    a.edges.push(A2B);
+    b.edges.push(B2A);
   }
 
   getNodes(): Node<NV, EV>[] {
